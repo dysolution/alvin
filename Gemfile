@@ -13,11 +13,21 @@ gem 'sqlite3'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'autotest-rails'
+  gem 'webrat'
 
 group :test, :development do
   gem "rspec-rails"
 end
 
+group :test do
+  gem 'cucumber-rails'
+  gem 'factory_girl_rails', '~> 4.0'
+end
+
+group :development do
+  gem 'annotate', ">=2.5.0"
+end
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
