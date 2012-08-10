@@ -10,10 +10,14 @@ class Address < ActiveRecord::Base
 
   def google_maps_url
     url = "http://maps.google.com/maps?daddr="
-    url << "#{space_to_plus street_address_1}"
-    url << ",#{space_to_plus street_address_2}"
-    url << ",#{city},#{state},#{zipcode}"
+    url << google_destination_address
     url << "&ie=UTF8&om=1&iwloc=addr"
+  end
+
+  def google_destination_address
+    addr = "#{space_to_plus street_address_1}"
+    addr << ",#{space_to_plus street_address_2}"
+    addr << ",#{city},#{state},#{zipcode}"
   end
 
   def space_to_plus(str)
